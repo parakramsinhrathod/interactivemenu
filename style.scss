@@ -1,0 +1,72 @@
+body {
+    background: black;
+    margin: 0;
+    height: 100vh;
+    font-family: 'Bebas Neue';
+}
+.container {
+    height: 100vh;
+    display: grid;
+    place-content: center;
+}
+
+
+li a{
+    color: white;
+    text-decoration: none;
+    font-size: 4rem;
+    position: relative;
+    display: inline-block;
+    transition: filter .5s, font-size .5s;
+}
+
+ul:hover li a{
+    filter: blur(4px);
+    color:rgb(192, 192,192);
+}
+
+ ul{
+
+    overflow: hidden;
+    padding: 0 0 0 .3em;
+    
+    li a:before{
+        position: absolute;
+        content: '';
+        bottom: .1em;
+        left: 0;
+        height: 1px;
+        border-bottom: 3px solid white;
+        width: 100%;
+        transform: translateX(-107%);
+        transition: transform 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+        pointer-events: none;
+
+    }
+
+    li:hover a:before{
+        transform: translateX(-30%);
+    }
+
+    li a:hover{
+        filter: blur(0);
+        color: white;
+        font-size: 4.2rem;
+        animation: revealText 1s;
+    }
+    &:focus {
+        color: yellow;
+    }
+ }
+ li{
+    margin: 0;padding: 0;
+ }
+
+ @keyframes revealText{
+     from{
+         transform: translateX(-30%);
+     }
+     to{
+         transform: translateX(0);
+     }
+ } 

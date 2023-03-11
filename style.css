@@ -1,0 +1,99 @@
+body {
+  background: black;
+  margin: 0;
+  height: 100vh;
+  font-family: 'Bebas Neue';
+}
+
+.container {
+  height: 100vh;
+  display: -ms-grid;
+  display: grid;
+  place-content: center;
+}
+
+li a {
+  color: white;
+  text-decoration: none;
+  font-size: 4rem;
+  position: relative;
+  display: inline-block;
+  -webkit-transition: font-size .5s, -webkit-filter .5s;
+  transition: font-size .5s, -webkit-filter .5s;
+  transition: filter .5s, font-size .5s;
+  transition: filter .5s, font-size .5s, -webkit-filter .5s;
+}
+
+ul:hover li a {
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+  color: silver;
+}
+
+ul {
+  overflow: hidden;
+  padding: 0 0 0 .3em;
+}
+
+ul li a:before {
+  position: absolute;
+  content: '';
+  bottom: .1em;
+  left: 0;
+  height: 1px;
+  border-bottom: 3px solid white;
+  width: 100%;
+  -webkit-transform: translateX(-107%);
+          transform: translateX(-107%);
+  -webkit-transition: -webkit-transform 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: -webkit-transform 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 2s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  pointer-events: none;
+}
+
+ul li:hover a:before {
+  -webkit-transform: translateX(-30%);
+          transform: translateX(-30%);
+}
+
+ul li a:hover {
+  -webkit-filter: blur(0);
+          filter: blur(0);
+  color: white;
+  font-size: 4.2rem;
+  -webkit-animation: revealText 1s;
+          animation: revealText 1s;
+}
+
+ul:focus {
+  color: yellow;
+}
+
+li {
+  margin: 0;
+  padding: 0;
+}
+
+@-webkit-keyframes revealText {
+  from {
+    -webkit-transform: translateX(-30%);
+            transform: translateX(-30%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+
+@keyframes revealText {
+  from {
+    -webkit-transform: translateX(-30%);
+            transform: translateX(-30%);
+  }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+  }
+}
+/*# sourceMappingURL=style.css.map */
